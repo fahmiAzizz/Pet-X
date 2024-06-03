@@ -8,9 +8,7 @@ import dog3 from '../assets/dog3.png'
 import dog4 from '../assets/dog4.png'
 import cat6 from '../assets/cat6.png'
 
-
 const Carousel = () => {
-
     const carouselList = [
         {
             id: 0,
@@ -65,32 +63,32 @@ const Carousel = () => {
     }, []);
 
     return (
-        <div className=' max-w-screen-md px-5 mx-auto '>
-            <div className=''>
-                <CarouselProvider
-                    naturalSlideWidth={100}
-                    naturalSlideHeight={150}
-                    totalSlides={5}
-                    visibleSlides={visibleSlides}
-                    className='  mx-auto'
-                >
-                    <div className='mx-auto text-center'>
-                        <Slider className=''>
-                            {carouselList.map((carousel) => (
-                                <Slide index={carousel.id} key={carousel.id}>
-                                    <div className='mx-auto w-56 h-72 bg-white p-2 shadow-md rounded-lg'>
-                                        <img src={carousel.gambar} className=' h-2/3 mx-auto' alt="" />
-                                        <p className='text-center p-2'>{carousel.nama}</p>
-                                        <div className='mx-auto text-center'> <button className='mx-auto py-1 px-5 rounded-2xl bg-white border-2 border-yellow-400 hover:bg-yellow-400'>Info</button></div>
+        <div className='max-w-screen-md px-5 mx-auto'>
+            <CarouselProvider
+                naturalSlideWidth={100}
+                naturalSlideHeight={150}
+                totalSlides={5}
+                visibleSlides={visibleSlides}
+                className='mx-auto'
+            >
+                <div className='relative mx-auto text-center'>
+                    <Slider className=''>
+                        {carouselList.map((carousel) => (
+                            <Slide index={carousel.id} key={carousel.id}>
+                                <div className='mx-auto w-56 h-72 bg-white p-2 shadow-md rounded-lg'>
+                                    <img src={carousel.gambar} className='h-2/3 mx-auto' alt="" />
+                                    <p className='text-center p-2'>{carousel.nama}</p>
+                                    <div className='mx-auto text-center'>
+                                        <button className='mx-auto py-1 px-5 rounded-2xl bg-white border-2 border-yellow-400 hover:bg-yellow-400'>Info</button>
                                     </div>
-                                </Slide>
-                            ))}
-                        </Slider>
-                        <ButtonBack className='absolute hover:text-yellow-400 hover:scale-110 left-5 lg:left-36  bottom-[34%]'><FiArrowLeftCircle size={30} /></ButtonBack>
-                        <ButtonNext className='absolute hover:text-yellow-400 hover:scale-110 right-5 lg:right-36 top-[60%]'><FiArrowRightCircle size={30} /></ButtonNext>
-                    </div>
-                </CarouselProvider>
-            </div>
+                                </div>
+                            </Slide>
+                        ))}
+                    </Slider>
+                    <ButtonBack className='absolute hover:text-yellow-400 hover:scale-110 -left-10  top-[50%] transform -translate-y-1/2'><FiArrowLeftCircle size={30} /></ButtonBack>
+                    <ButtonNext className='absolute hover:text-yellow-400 hover:scale-110 -right-10  top-[50%] transform -translate-y-1/2'><FiArrowRightCircle size={30} /></ButtonNext>
+                </div>
+            </CarouselProvider>
         </div>
     )
 }
